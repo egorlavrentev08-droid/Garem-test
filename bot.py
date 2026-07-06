@@ -108,7 +108,7 @@ async def cmd_me(message: types.Message):
 
 async def cmd_name(message: types.Message):
     args = message.text.split(maxsplit=1)
-    if len(args) < 2):
+    if len(args) < 2:
         return await message.answer("📝 Используй: /name ТвоёИмя")
     
     new_name = args[1].strip()
