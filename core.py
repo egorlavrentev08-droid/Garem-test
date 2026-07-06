@@ -1,5 +1,4 @@
 # core.py
-100
 import logging
 import random
 import json
