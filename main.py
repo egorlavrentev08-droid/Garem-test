@@ -1,3 +1,5 @@
+# main.py
+
 import asyncio
 import logging
 import random
@@ -9,7 +11,7 @@ from config import BOT_TOKEN, ADMIN_CHAT_ID, ADMIN_IDS, DB_PATH
 from db import init_db, award_daily_top, award_weekly_top, reset_daily_messages, check_expired_redemptions
 from core import load_phrases, check_inactive_users, handle_inactive_user, get_random_phrase
 from bot import register_handlers
-from test import is_test_mode
+from test import is_test_mode, get_test_status
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,6 +33,10 @@ async def main():
     register_handlers(dp, bot)
     
     asyncio.create_task(scheduler_loop(bot))
+    
+    if is_test_mode():
+        status = get_test_status()
+        logger.warning(f"⚠️ ТЕСТОВЫЙ РЕЖИМ ВКЛЮЧЁН! Множитель x{status['multiplier']}")
     
     logger.info("✅ Бот запущен!")
     await dp.start_polling(bot)
