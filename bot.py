@@ -17,7 +17,8 @@ from db import (
     get_user, register_user, update_user_name, 
     get_shield_count, is_shield_active,
     get_top_streak, get_top_messages_today,
-    get_redemption_status, is_user_banned
+    get_redemption_status, is_user_banned,
+    ban_user, pardon_user
 )
 from core import (
     process_user_message, get_user_profile, 
@@ -25,8 +26,7 @@ from core import (
     get_top_streak_text, get_top_messages_text,
     get_random_picture, get_random_meme,
     get_random_phrase, load_phrases,
-    admin_give_coins, admin_set_shield, admin_set_rank,
-    ban_user, pardon_user
+    admin_give_coins, admin_set_shield, admin_set_rank
 )
 
 logger = logging.getLogger(__name__)
